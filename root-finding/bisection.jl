@@ -1,4 +1,4 @@
-function bisection(f::Function, a::Number, b::Number, ξ::Real=1e-4, num_iter::Integer=100)
+function bisection(f::Function, a::Number, b::Number, ε::Real=1e-4, num_iter::Integer=100)
     
     # Initial check: whether a root exists in [a, b]
     f(a)f(b) <= 0 || error("No real root in [a, b]")
@@ -8,7 +8,7 @@ function bisection(f::Function, a::Number, b::Number, ξ::Real=1e-4, num_iter::I
 
         x = (a + b) / 2
 
-        if f(x) == 0 || abs(b - a) < ξ
+        if f(x) == 0 || abs(b - a) < ε
             return x;
         end
 
