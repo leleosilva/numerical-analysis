@@ -18,5 +18,5 @@ function bisection(f::Function, a::Number, b::Number, ξ::Real=1e-4, num_iter::I
             b = x
         end
     end
-    return Nothing # 
+    return Nothing # Real root not found in [a, b]
 end
