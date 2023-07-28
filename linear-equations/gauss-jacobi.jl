@@ -5,6 +5,7 @@ function gauss_jacobi(A::Array{<:Real}, b::Array{<:Real}, x::Array{<:Real},
     
     D = diag(A) # Getting main diagonal from A
 
+    final_iter = 0
     for iter in 1:max_iter
 
         previous_x = copy(x)
@@ -21,5 +22,7 @@ function gauss_jacobi(A::Array{<:Real}, b::Array{<:Real}, x::Array{<:Real},
         if error <= ε # True if error <= ε
             return (x, iter, error, true)
         end
+        final_iter = iter
     end
-    return (x, iter, error, false) # False if final error > ε
+    return (x, final_iter, error, false) # False if final error > ε
+end
